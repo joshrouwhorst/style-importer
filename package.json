@@ -1,7 +1,7 @@
 {
-	"name": "obsidian-sample-plugin",
+	"name": "style-importer",
 	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"description": "Obsidian.md plugin to import a stylesheet from a URL to the snippets folder.",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
