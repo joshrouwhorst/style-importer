@@ -1,9 +1,9 @@
 {
 	"id": "style-importer",
 	"name": "Style Importer",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"minAppVersion": "0.1.0",
-	"description": "This is a plugin to load a stylesheet from a URL into your snippets folder.",
+	"description": "Import a stylesheet from a URL into your snippets folder.",
 	"author": "Josh Rouwhorst",
 	"authorUrl": "https://github.com/joshrouwhorst",
 	"fundingUrl": "https://www.buymeacoffee.com/joshrouwhorst",

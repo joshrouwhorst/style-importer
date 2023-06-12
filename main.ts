@@ -1,4 +1,4 @@
-import { App, Notice, Plugin, PluginSettingTab, Setting } from "obsidian";
+import { App, Notice, Plugin, PluginSettingTab, Setting, requestUrl } from "obsidian";
 
 const FILE_LOCATION = `.obsidian/snippets/style-importer.css`
 let lastUpdated = new Date();
@@ -27,13 +27,13 @@ export default class StyleImport extends Plugin {
 
 			// Get the latest version of the style file
 			try {
-				content = await fetch(this.settings.styleUrl)
+				content = await requestUrl(this.settings.styleUrl)
 			} catch (err) {
 				new Notice(`Style Import: Failed to fetch style file "${this.settings.styleUrl}"`);
 				return;
 			}
 
-			const text = await content.text();
+			const text = await content.text;
 
 			// Make sure the snippets folder exists
 			try {
@@ -82,8 +82,6 @@ class StyleImportSettingTab extends PluginSettingTab {
 
 		containerEl.empty();
 
-		containerEl.createEl('h2', { text: 'Style Import Settings' });
-
 		new Setting(containerEl)
 			.setName('Style URL')
 			.setDesc('Enter the URL of the CSS file you want to import. Be sure to include http:// or https://. Example: https://example.com/style.css')
@@ -96,7 +94,7 @@ class StyleImportSettingTab extends PluginSettingTab {
 				}));
 
 		new Setting(containerEl)
-			.setName('Update On Load')
+			.setName('Update on load')
 			.setDesc('Update the style when the plugin first loads')
 			.addToggle(toggle => toggle
 				.setValue(this.plugin.settings.updateOnLoad)
@@ -106,7 +104,7 @@ class StyleImportSettingTab extends PluginSettingTab {
 				}));
 
 		new Setting(containerEl)
-			.setName('Update Style')
+			.setName('Update style')
 			.setDesc(`Last updated: ${formatDate(lastUpdated)}`)
 			.addButton(button => button
 				.setButtonText('Reload')

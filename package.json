@@ -1,6 +1,6 @@
 {
 	"name": "style-importer",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Obsidian.md plugin to import a stylesheet from a URL to the snippets folder.",
 	"main": "main.js",
 	"scripts": {
